@@ -35,7 +35,7 @@ export default function PurchasePage() {
         </h2>
         <p className="text-lg font-semibold text-gray-800 mb-2">ベーシックプラン：月額 980円</p>
         <ul className="list-disc pl-5 text-gray-700 text-base space-y-1">
-          <li>作文生成・画像認識・Wordレポート出力に <span className="font-bold">基本無制限アクセス</span></li>
+          <li>自然な作文生成・画像認識に <span className="font-bold">基本無制限アクセス</span></li>
           <li>日本人向けに最適化された自然でバレにくい文章</li>
           <li>AI検出率を抑えた高精度出力形式に対応</li>
         </ul>
@@ -67,7 +67,7 @@ export default function PurchasePage() {
           <span className="mr-2">💴</span> PayPayでのお支払い方法
         </h2>
         <ol className="list-decimal pl-5 text-gray-800 space-y-2 text-base">
-          <li>ホームタブ、下部の <span className="text-red-500 font-semibold">赤い「送る」</span> ボタンをタップ</li>
+          <li>PayPayアプリのホームタブ、下部の <span className="text-red-500 font-semibold">赤い「送る」</span> ボタンをタップ</li>
           <li>画面上部の検索バーに <code className="font-mono font-bold">quartz_2525</code> と入力し、表示されたユーザーを開く</li>
           <li>左下の <span className="text-red-500 font-semibold">「送る」</span> ボタンをもう一度タップ</li>
           <li>金額を <strong>980円</strong> に設定し、「次へ」をタップ</li>
@@ -75,7 +75,7 @@ export default function PurchasePage() {
           <li>内容を確認して送信！これで完了です 🎉</li>
         </ol>
         <p className="text-sm text-gray-600 mt-4">
-          ※送金後、<strong>24時間以内にアカウントが有効化</strong>されます。
+          ※送金後、<strong>通常24時間以内にアカウントが有効化</strong>されます。
         </p>
       </section>
 
@@ -88,7 +88,7 @@ export default function PurchasePage() {
           操作に迷ったら、LINE公式アカウントまでお気軽にお問い合わせください。
         </p>
         <a
-          href="https://lin.ee/xxxxxxxx"
+          href="https://line.me/R/ti/p/@784snqyj"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition"

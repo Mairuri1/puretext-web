@@ -48,32 +48,35 @@ export default function Home() {
   return (
     <main className="scroll-smooth bg-white text-gray-800">
       {/* Heroセクション（目を引く導入） */}
-<section className="text-center py-20 px-4 bg-gradient-to-br from-purple-500 to-indigo-600 text-white">
-  <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-    ChatGPTはもう見抜かれる時代。
+<section className="text-center py-12 md:py-20 px-4 bg-gradient-to-br from-purple-500 to-indigo-600 text-white">
+
+  <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight md:leading-tight">
+    ChatGPTは<br className="block md:hidden" />
+    もう見抜かれる時代。
   </h1>
-  <p className="text-lg md:text-xl mb-2">でも、手直しって正直めんどくさい。</p>
-  <p className="text-lg md:text-xl mb-6">
-    <span className="text-yellow-300 font-extrabold text-3xl md:text-4xl mr-2">
+  <p className="text-base md:text-xl mb-1 leading-snug">でも、手直しって正直めんどくさい。</p>
+  <p className="text-base md:text-xl mb-4">
+    <span className="text-yellow-300 font-extrabold text-2xl md:text-4xl mr-2">
       PureText
     </span>
     は、そんなあなたのためのAIです。
   </p>
-<a
-  href="#"
-  className="inline-block bg-white text-purple-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition hover:scale-105 shadow-lg text-lg"
-  onClick={(e) => {
-    e.preventDefault();
-    const el = document.getElementById("features-title");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  }}
->
-  今すぐはじめる
-</a>
-
+  <a
+    href="#"
+    className="inline-block bg-white text-purple-600 px-6 py-2 rounded-full font-bold hover:bg-gray-100 transition hover:scale-105 shadow-lg text-base md:text-lg"
+    onClick={(e) => {
+      e.preventDefault();
+      const el = document.getElementById("features");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }}
+  >
+    今すぐはじめる
+  </a>
 </section>
+
+
 
 
 <section className="bg-yellow-50 border-l-4 border-yellow-400 py-10 px-6 md:px-16 text-left">
@@ -95,66 +98,62 @@ export default function Home() {
 <span id="features" className="block h-0 scroll-mt-28"></span>
 
 <section className="py-16 px-6 bg-white text-center">
-  <h2
-    id="features-title"
-    className="text-xl md:text-3xl font-bold mb-4 text-gray-800 leading-snug"
-  >
-    超自然な文章が書けるAIツール<br />
-    <span className="text-purple-700 font-extrabold text-2xl md:text-4xl">
-      「PureText」
-    </span> はこんな人におすすめ
-  </h2>
+<h2 className="text-xl md:text-3xl font-bold mb-2 text-gray-800 leading-tight">
+  超自然な文章が書けるAIツール<br />
+  <span className="text-purple-700 font-extrabold text-2xl md:text-4xl">
+    「PureText」
+  </span> はこんな人におすすめ
+</h2>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mt-10">
+
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-10">
     {/* カード 1 */}
     <div className="flex flex-col items-center text-gray-800">
       <img
         src="/images/target1.png"
         alt="AIレポート手直し"
-        className="w-50 h-50 mb-4"
+        className="w-24 h-24 md:w-32 md:h-32 mb-4 mx-auto"
       />
       <p className="text-base md:text-xl font-semibold text-center leading-relaxed">
         AIで書いたレポートを<br />毎回手直ししてる人
       </p>
     </div>
-
     {/* カード 2 */}
     <div className="flex flex-col items-center text-gray-800">
       <img
         src="/images/target2.png"
         alt="教授にバレないか不安"
-        className="w-50 h-50 mb-4"
+        className="w-24 h-24 md:w-32 md:h-32 mb-4 mx-auto"
       />
       <p className="text-base md:text-xl font-semibold text-center leading-relaxed">
         教授にバレないか<br />ヒヤヒヤしてる人
       </p>
     </div>
-
     {/* カード 3 */}
     <div className="flex flex-col items-center text-gray-800">
       <img
         src="/images/target3.png"
         alt="画像課題をまとめて処理"
-        className="w-50 h-50 mb-4"
+        className="w-24 h-24 md:w-32 md:h-32 mb-4 mx-auto"
       />
       <p className="text-base md:text-xl font-semibold text-center leading-relaxed">
         画像の課題を<br />何枚も一気に処理したい人
       </p>
     </div>
-
     {/* カード 4 */}
     <div className="flex flex-col items-center text-gray-800">
       <img
         src="/images/target4.png"
         alt="無料ツール制限にイライラ"
-        className="w-50 h-50 mb-4"
+        className="w-24 h-24 md:w-32 md:h-32 mb-4 mx-auto"
       />
       <p className="text-base md:text-xl font-semibold text-center leading-relaxed">
-        無料ツールの回数制限に<br />イライラしたことがある人
+        無料AIの回数制限に<br />イライラしたことがある人
       </p>
     </div>
   </div>
 </section>
+
 
 
 <section className="py-20 px-6 bg-white max-w-5xl mx-auto">
@@ -173,7 +172,7 @@ export default function Home() {
       <ul className="list-disc list-inside text-gray-700 space-y-2">
         <li><span className="font-semibold text-purple-700">AIが作った文章の癖を徹底排除</span>し、文章からAIっぽさを除去</li>
         <li>外部ツールでのチェックでも<span className="font-semibold text-purple-700">平均AI検出率5%以下</span>を実現</li>
-        <li>英検やTOEICでも使える、<span className="font-semibold text-purple-700">日本人が書くような英語文</span>にも対応</li>
+        <li>英検やTOEICでも使える、<span className="font-semibold text-purple-700">日本人が書くような英文</span>にも対応</li>
       </ul>
       <p className="mt-4 text-purple-900">
         ChatGPTだけでは教授にバレる時代。<br />
@@ -224,139 +223,165 @@ export default function Home() {
 <span id="how-to" className="block h-0 scroll-mt-28"></span>
 
 <section className="bg-gray-50 py-20 px-6 w-full text-center">
-  <h2 className="text-3xl font-bold mb-12">使い方はたったの4ステップ</h2>
-  <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+  <h2
+    className="text-[1.7rem] xs:text-2xl sm:text-3xl md:text-4xl font-extrabold mb-2 md:mb-5 leading-tight tracking-tight"
+    style={{ maxWidth: '95vw', margin: '0 auto' }}
+  >
+    使い方はたったの4ステップ
+  </h2>
+  {/* ここがポイント！mt-10 でタイトル下に大きめ余白 */}
+  <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mt-10 md:mt-14">
 
     {/* STEP 1 */}
-    <div className="relative bg-yellow-50 border border-yellow-200 rounded-2xl py-8 px-6 w-64 shadow-xl transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+    <div className="relative bg-yellow-50 border border-yellow-200 rounded-2xl py-6 md:py-8 px-4 md:px-6 w-64 shadow-xl transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
       <img
         src="/images/step1.png"
         alt="Step 1 Illustration"
-        className="absolute top-2 right-3 w-14 h-auto"
+        className="absolute top-2 right-3 w-12 md:w-14 h-auto"
       />
       <div className="text-sm text-yellow-700 font-bold mb-1 tracking-wider">STEP 1</div>
       <p className="font-semibold text-lg">テーマを入力</p>
       <p className="text-xs text-gray-600 mt-1">授業のお題をそのまま</p>
     </div>
 
-    {/* → */}
-    <div className="text-4xl md:text-5xl text-yellow-300 drop-shadow-xl font-extrabold hidden md:block select-none">→</div>
+    {/* 矢印 */}
+    <div className="text-3xl md:text-5xl text-yellow-300 drop-shadow-xl font-extrabold my-4 md:my-0 hidden md:block select-none">→</div>
+    <div className="text-3xl text-yellow-300 drop-shadow-xl font-extrabold my-4 md:my-0 block md:hidden select-none">↓</div>
 
     {/* STEP 2 */}
-    <div className="relative bg-yellow-50 border border-yellow-200 rounded-2xl py-8 px-6 w-64 shadow-xl transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+    <div className="relative bg-yellow-50 border border-yellow-200 rounded-2xl py-6 md:py-8 px-4 md:px-6 w-64 shadow-xl transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
       <img
         src="/images/step2.png"
         alt="Step 2 Illustration"
-        className="absolute top-2 right-3 w-12 h-auto"
+        className="absolute top-2 right-3 w-10 md:w-12 h-auto"
       />
       <div className="text-sm text-yellow-700 font-bold mb-1 tracking-wider">STEP 2</div>
       <p className="font-semibold text-lg">文体を選ぶ</p>
       <p className="text-xs text-gray-600 mt-1">崩し度や雰囲気も調整OK</p>
     </div>
 
-    {/* → */}
-    <div className="text-4xl md:text-5xl text-yellow-300 drop-shadow-xl font-extrabold hidden md:block select-none">→</div>
+    {/* 矢印 */}
+    <div className="text-3xl md:text-5xl text-yellow-300 drop-shadow-xl font-extrabold my-4 md:my-0 hidden md:block select-none">→</div>
+    <div className="text-3xl text-yellow-300 drop-shadow-xl font-extrabold my-4 md:my-0 block md:hidden select-none">↓</div>
 
     {/* STEP 3 */}
-    <div className="relative bg-yellow-50 border border-yellow-200 rounded-2xl py-8 px-6 w-64 shadow-xl transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+    <div className="relative bg-yellow-50 border border-yellow-200 rounded-2xl py-6 md:py-8 px-4 md:px-6 w-64 shadow-xl transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
       <img
         src="/images/step3.png"
         alt="Step 3 Illustration"
-        className="absolute top-2 right-3 w-16 h-auto"
+        className="absolute top-2 right-3 w-14 md:w-16 h-auto"
       />
       <div className="text-sm text-yellow-700 font-bold mb-1 tracking-wider">STEP 3</div>
       <p className="font-semibold text-lg">ボタンを押す</p>
       <p className="text-xs text-gray-600 mt-1">10秒ほどで自動生成</p>
     </div>
 
-    {/* → */}
-    <div className="text-4xl md:text-5xl text-yellow-300 drop-shadow-xl font-extrabold hidden md:block select-none">→</div>
+    {/* 矢印 */}
+    <div className="text-3xl md:text-5xl text-yellow-300 drop-shadow-xl font-extrabold my-4 md:my-0 hidden md:block select-none">→</div>
+    <div className="text-3xl text-yellow-300 drop-shadow-xl font-extrabold my-4 md:my-0 block md:hidden select-none">↓</div>
 
     {/* STEP 4（強調） */}
-    <div className="relative bg-yellow-100 border-2 border-yellow-400 ring-4 ring-yellow-200 rounded-2xl p-8 w-72 shadow-2xl scale-110 z-10 transition-transform duration-300 hover:scale-115 hover:shadow-[0_8px_32px_#facc15]">
+    <div className="relative bg-yellow-100 border-2 border-yellow-400 ring-4 ring-yellow-200 rounded-2xl p-6 md:p-8 w-72 shadow-2xl scale-110 z-10 transition-transform duration-300 hover:scale-115 hover:shadow-[0_8px_32px_#facc15]">
       <img
         src="/images/step4.png"
         alt="Step 4 Illustration"
-        className="absolute top-2 right-3 w-16 h-auto"
+        className="absolute top-2 right-3 w-14 md:w-16 h-auto"
       />
       <div className="text-sm text-yellow-800 font-bold mb-1 tracking-wider">STEP 4</div>
       <p className="text-xl font-bold text-yellow-800">コピペして提出！</p>
       <p className="text-sm text-gray-700 mt-1">そのまま使える自然な文章</p>
     </div>
-
   </div>
 </section>
 
+{/* --- 比較表タイトル --- */}
+<div className="w-full bg-white pt-12 pb-4 text-center">
+  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1 tracking-tight">
+    他サービスとの比較
+  </h2>
+  <p className="text-base md:text-lg text-gray-600">
+    PureTextは<span className="font-bold text-purple-600">自然さ・速さ・使いやすさ</span>で圧倒的コスパ！
+  </p>
+</div>
 
-<div className="mt-16"></div>
 
-<div className="overflow-x-auto max-w-[900px] mx-auto">
-  <table className="table-auto border border-gray-300 w-full text-[16px]">
+
+<div className="overflow-x-auto max-w-5xl mx-auto mt-4 md:mt-8 px-1 md:px-0">
+  <table className="table-auto w-full min-w-[410px] sm:min-w-[510px] border border-gray-300 text-xs md:text-[16px] bg-white">
     <thead>
       <tr className="bg-gray-100">
-        <th className="border border-gray-300 px-4 py-2 text-left"></th>
-        <th className="border border-gray-300 px-4 py-2 text-center text-gray-500">無料AI</th>
-        <th className="border border-gray-300 px-4 py-2 text-center text-gray-500">他社有料</th>
-        <th className="relative border border-gray-300 px-4 py-2 text-center text-green-800 bg-green-50 font-semibold">
-          PureText
-          <span className="absolute -top-0 right-2 text-[10px] bg-purple-600 text-white rounded-full px-2 py-0.5 shadow-sm">
-            人気 No.1
-          </span>
-        </th>
+        <th className="border border-gray-300 px-1 py-2 text-left min-w-[55px] sm:min-w-[70px]"></th>
+        <th className="border border-gray-300 px-1 py-2 text-center text-gray-500 font-bold min-w-[85px] sm:min-w-[95px]">無料AI</th>
+        <th className="border border-gray-300 px-1 py-2 text-center text-gray-500 font-bold min-w-[85px] sm:min-w-[95px]">他社有料</th>
+<th className="border border-gray-300 px-2 md:px-4 py-2 bg-green-50 font-bold text-green-800">
+  <div className="flex items-center justify-center gap-2">
+    <span>PureText</span>
+    <span className="text-[11px] bg-purple-600 text-white rounded-full px-2 py-0.5 shadow-sm hidden md:inline-block">
+      人気 No.1
+    </span>
+  </div>
+  {/* スマホは今まで通り下に表示 */}
+  <span className="block md:hidden mt-1 text-[10px] bg-purple-600 text-white rounded-full px-2 py-0.5 shadow-sm mx-auto w-fit">
+    人気 No.1
+  </span>
+</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td className="border border-gray-300 px-4 py-2 font-medium text-gray-700">
-          <span className="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-md">自然さ</span>
+        <td className="border border-gray-300 px-1 py-2 font-medium text-gray-700 text-xs md:text-sm whitespace-nowrap min-w-[55px] sm:min-w-[70px]">
+          <span className="bg-blue-100 text-blue-800 px-1 py-0.5 rounded-md">自然さ</span>
         </td>
-        <td className="border border-gray-300 px-4 py-2 text-gray-500">不自然で堅い／バレやすい</td>
-        <td className="border border-gray-300 px-4 py-2 text-gray-500">やや自然だが少し堅い</td>
-        <td className="border border-gray-300 px-4 py-2 text-green-900 font-medium">そのまま使えるレベルで自然</td>
+        <td className="border border-gray-300 px-1 py-2 text-gray-500 min-w-[85px] sm:min-w-[95px]">不自然で堅い／バレやすい</td>
+        <td className="border border-gray-300 px-1 py-2 text-gray-500 min-w-[85px] sm:min-w-[95px]">やや自然だが少し堅い</td>
+        <td className="border border-gray-300 px-1 py-2 text-green-900 font-medium min-w-[105px] sm:min-w-[115px]">そのまま使えるレベルで自然</td>
       </tr>
       <tr>
-        <td className="border border-gray-300 px-4 py-2 font-medium text-gray-700">
-          <span className="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-md">処理時間</span>
+        <td className="border border-gray-300 px-1 py-2 font-medium text-gray-700 text-xs md:text-sm whitespace-nowrap min-w-[55px] sm:min-w-[70px]">
+          <span className="bg-blue-100 text-blue-800 px-1 py-0.5 rounded-md">処理時間</span>
         </td>
-        <td className="border border-gray-300 px-4 py-2 text-gray-500">遅め／広告あり</td>
-        <td className="border border-gray-300 px-4 py-2 text-gray-500">早いが混雑時は不安定</td>
-        <td className="border border-gray-300 px-4 py-2 text-green-900 font-medium">平均10秒で即出力</td>
+        <td className="border border-gray-300 px-1 py-2 text-gray-500 min-w-[85px] sm:min-w-[95px]">遅め／広告あり</td>
+        <td className="border border-gray-300 px-1 py-2 text-gray-500 min-w-[85px] sm:min-w-[95px]">早いが混雑時は不安定</td>
+        <td className="border border-gray-300 px-1 py-2 text-green-900 font-medium min-w-[105px] sm:min-w-[115px]">平均10秒で即出力</td>
       </tr>
       <tr>
-        <td className="border border-gray-300 px-4 py-2 font-medium text-gray-700">
-          <span className="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-md">使い勝手</span>
+        <td className="border border-gray-300 px-1 py-2 font-medium text-gray-700 text-xs md:text-sm whitespace-nowrap min-w-[55px] sm:min-w-[70px]">
+          <span className="bg-blue-100 text-blue-800 px-1 py-0.5 rounded-md">使い勝手</span>
         </td>
-        <td className="border border-gray-300 px-4 py-2 text-gray-500">指示を毎回入力する必要あり</td>
-        <td className="border border-gray-300 px-4 py-2 text-gray-500">同様に自力で指示が必要</td>
-        <td className="border border-gray-300 px-4 py-2 text-green-900 font-medium">テーマを入れてボタンを押すだけ</td>
+        <td className="border border-gray-300 px-1 py-2 text-gray-500 min-w-[85px] sm:min-w-[95px]">指示を毎回入力する必要あり</td>
+        <td className="border border-gray-300 px-1 py-2 text-gray-500 min-w-[85px] sm:min-w-[95px]">同様に自力で指示が必要</td>
+        <td className="border border-gray-300 px-1 py-2 text-green-900 font-medium min-w-[105px] sm:min-w-[115px]">テーマを入れてボタンを押すだけ</td>
       </tr>
       <tr>
-        <td className="border border-gray-300 px-4 py-2 font-medium text-gray-700">
-          <span className="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-md">調整時間</span>
+        <td className="border border-gray-300 px-1 py-2 font-medium text-gray-700 text-xs md:text-sm whitespace-nowrap min-w-[55px] sm:min-w-[70px]">
+          <span className="bg-blue-100 text-blue-800 px-1 py-0.5 rounded-md">調整時間</span>
         </td>
-        <td className="border border-gray-300 px-4 py-2 text-gray-500">10分以上の手直しが必要</td>
-        <td className="border border-gray-300 px-4 py-2 text-gray-500">2分程度の微調整が必要</td>
-        <td className="border border-gray-300 px-4 py-2 text-green-900 font-medium">基本不要／10秒で使える</td>
+        <td className="border border-gray-300 px-1 py-2 text-gray-500 min-w-[85px] sm:min-w-[95px]">10分以上の手直しが必要</td>
+        <td className="border border-gray-300 px-1 py-2 text-gray-500 min-w-[85px] sm:min-w-[95px]">2分程度の微調整が必要</td>
+        <td className="border border-gray-300 px-1 py-2 text-green-900 font-medium min-w-[105px] sm:min-w-[115px]">基本不要／10秒で使える</td>
       </tr>
       <tr>
-        <td className="border border-gray-300 px-4 py-2 font-medium text-gray-700">
-          <span className="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-md">画像処理</span>
+        <td className="border border-gray-300 px-1 py-2 font-medium text-gray-700 text-xs md:text-sm whitespace-nowrap min-w-[55px] sm:min-w-[70px]">
+          <span className="bg-blue-100 text-blue-800 px-1 py-0.5 rounded-md">画像処理</span>
         </td>
-        <td className="border border-gray-300 px-4 py-2 text-gray-500">5枚程度</td>
-        <td className="border border-gray-300 px-4 py-2 text-gray-500">30枚程度</td>
-        <td className="border border-gray-300 px-4 py-2 text-green-900 font-medium">基本無制限</td>
+        <td className="border border-gray-300 px-1 py-2 text-gray-500 min-w-[85px] sm:min-w-[95px]">5枚程度</td>
+        <td className="border border-gray-300 px-1 py-2 text-gray-500 min-w-[85px] sm:min-w-[95px]">30枚程度</td>
+        <td className="border border-gray-300 px-1 py-2 text-green-900 font-medium min-w-[105px] sm:min-w-[115px]">基本無制限</td>
       </tr>
       <tr>
-        <td className="border border-gray-300 px-4 py-2 font-medium text-gray-700">
-          <span className="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-md">金額</span>
+        <td className="border border-gray-300 px-1 py-2 font-medium text-gray-700 text-xs md:text-sm whitespace-nowrap min-w-[55px] sm:min-w-[70px]">
+          <span className="bg-blue-100 text-blue-800 px-1 py-0.5 rounded-md">金額</span>
         </td>
-        <td className="border border-gray-300 px-4 py-2 text-gray-400">ー</td>
-        <td className="border border-gray-300 px-4 py-2 text-gray-500">3,000円／月〜</td>
-        <td className="border border-gray-300 px-4 py-2 text-green-900 font-medium">980円／月</td>
+        <td className="border border-gray-300 px-1 py-2 text-gray-400 min-w-[85px] sm:min-w-[95px]">ー</td>
+        <td className="border border-gray-300 px-1 py-2 text-gray-500 min-w-[85px] sm:min-w-[95px]">3,000円／月〜</td>
+        <td className="border border-gray-300 px-1 py-2 text-green-900 font-medium min-w-[105px] sm:min-w-[115px]">980円／月</td>
       </tr>
     </tbody>
   </table>
 </div>
+
+
+
 
 <div className="mt-16"></div>
 
@@ -374,6 +399,7 @@ export default function Home() {
         <li>✅ レポート生成 & 要約</li>
         <li>✅ 日本語/英語ともに自然な文章生成</li>
         <li>✅ 画像から解答 & 要約が可能</li>
+        <li>✅ ラーメン一杯分で、面倒な課題から解放</li>
       </ul>
       <Link
         href="/purchase"
@@ -385,49 +411,107 @@ export default function Home() {
   </div>
 </section>
 
+
 <section className="py-14 px-2 bg-white max-w-4xl mx-auto">
   <h3 className="text-2xl font-bold mb-7 text-center">
     <StarIcon className="w-8 h-8 text-yellow-400 mr-2 inline-block" />
     利用者レビュー
   </h3>
-  <Swiper
-    spaceBetween={36}
-    slidesPerView={2.4}   // ←ここを2.2〜2.5に
-    centeredSlides
-    loop
-    className="w-full review-swiper"
-  >
-    {reviews.map((r, i) => (
-<SwiperSlide key={i}>
-  <div className="review-card bg-white rounded-2xl shadow-2xl p-12 flex flex-col items-center gap-4 transition-all duration-300 min-h-[280px]">
-    <img src={r.icon} alt="" className="w-16 h-16 rounded-full mb-2 border-2 border-yellow-400" />
-    <div className="font-semibold text-gray-700">{r.name}</div>
-    <div className="text-xl font-bold text-yellow-600 text-center">{r.title}</div>
-    <div className="text-base text-gray-700 text-center">{r.content}</div>
-    <div className="flex items-center gap-1 mt-2">
-      <StarIcon className="w-6 h-6 text-yellow-400" />
-      <span className="text-sm text-gray-400">{r.stars} / 5</span>
-    </div>
-  </div>
-</SwiperSlide>
 
-    ))}
-  </Swiper>
-  {/* Swiperの中央スライドだけ拡大するカスタムCSS */}
-  <style jsx global>{`
-    .review-swiper .swiper-slide {
-      transition: transform 0.35s cubic-bezier(.42,.6,.4,1);
-      opacity: 0.7;
-      filter: blur(0.3px) grayscale(10%);
-    }
-    .review-swiper .swiper-slide-active {
-      transform: scale(1.08) !important;
-      opacity: 1 !important;
-      z-index: 2;
-      filter: none;
-    }
-  `}</style>
+  {/* ----- スマホ only ----- */}
+  <div className="block md:hidden">
+    <Swiper
+      spaceBetween={16}
+      slidesPerView={1.15}
+      breakpoints={{
+        640: { slidesPerView: 1.5, spaceBetween: 28 },
+        768: { slidesPerView: 2.3, spaceBetween: 36 },
+        1024: { slidesPerView: 2.6, spaceBetween: 36 },
+        1280: { slidesPerView: 3.1, spaceBetween: 40 },
+      }}
+      centeredSlides
+      loop
+      className="w-full review-swiper"
+    >
+      {reviews.map((r, i) => (
+        <SwiperSlide key={i}>
+          <div className="review-card bg-white rounded-2xl shadow-2xl p-7 sm:p-8 md:p-10 flex flex-col items-center gap-4 transition-all duration-300 min-h-[280px] max-w-[330px] mx-auto">
+            <img src={r.icon} alt="" className="w-16 h-16 rounded-full mb-2 border-2 border-yellow-400" />
+            <div className="font-semibold text-gray-700">{r.name}</div>
+            <div className="text-lg md:text-xl font-bold text-yellow-600 text-center">{r.title}</div>
+            <div className="text-sm md:text-base text-gray-700 text-center">{r.content}</div>
+            <div className="flex items-center gap-1 mt-2">
+              <StarIcon className="w-6 h-6 text-yellow-400" />
+              <span className="text-sm text-gray-400">{r.stars} / 5</span>
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+    <style jsx global>{`
+      .review-swiper .swiper-slide {
+        transition: transform 0.35s cubic-bezier(.42,.6,.4,1);
+        opacity: 0.7;
+        filter: blur(0.3px) grayscale(10%);
+        height: auto !important;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+      }
+      .review-swiper .swiper-slide-active {
+        transform: scale(1.08) !important;
+        opacity: 1 !important;
+        z-index: 2;
+        filter: none;
+      }
+      .review-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+    `}</style>
+  </div>
+
+  {/* ----- PC only ----- */}
+  <div className="hidden md:block">
+    <Swiper
+      spaceBetween={36}
+      slidesPerView={2.4}
+      centeredSlides
+      loop
+      className="w-full review-swiper"
+    >
+      {reviews.map((r, i) => (
+        <SwiperSlide key={i}>
+          <div className="review-card bg-white rounded-2xl shadow-2xl p-12 flex flex-col items-center gap-4 transition-all duration-300 min-h-[280px]">
+            <img src={r.icon} alt="" className="w-16 h-16 rounded-full mb-2 border-2 border-yellow-400" />
+            <div className="font-semibold text-gray-700">{r.name}</div>
+            <div className="text-xl font-bold text-yellow-600 text-center">{r.title}</div>
+            <div className="text-base text-gray-700 text-center">{r.content}</div>
+            <div className="flex items-center gap-1 mt-2">
+              <StarIcon className="w-6 h-6 text-yellow-400" />
+              <span className="text-sm text-gray-400">{r.stars} / 5</span>
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+    <style jsx global>{`
+      .review-swiper .swiper-slide {
+        transition: transform 0.35s cubic-bezier(.42,.6,.4,1);
+        opacity: 0.7;
+        filter: blur(0.3px) grayscale(10%);
+      }
+      .review-swiper .swiper-slide-active {
+        transform: scale(1.08) !important;
+        opacity: 1 !important;
+        z-index: 2;
+        filter: none;
+      }
+    `}</style>
+  </div>
 </section>
+
 
 
 

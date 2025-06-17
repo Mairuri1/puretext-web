@@ -19,18 +19,10 @@ export default function Header() {
     return () => listener.subscription.unsubscribe()
   }, [])
 
-  // ページ内スムーズスクロール用関数（型注釈なし）
-  const handleScrollTo = (id) => (e) => {
-    e.preventDefault()
-    const el = document.getElementById(id)
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   return (
     <header className="w-full bg-white shadow-sm sticky top-0 z-50">
       <div className="flex items-center justify-between px-6 py-4">
+        {/* ロゴ（全デバイス共通） */}
         <Link href="/" className="flex items-center gap-2 text-xl font-bold text-gray-800">
           <Image src="/images/logo.png" alt="PureText ロゴ" width={28} height={28} />
           <span>
@@ -39,31 +31,32 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="flex space-x-6 items-center text-sm font-medium text-gray-700">
+        {/* ===== PC用ナビ（768px以上）===== */}
+        <nav className="hidden md:flex space-x-6 items-center text-sm font-medium text-gray-700">
           <a
             href="#features"
-            onClick={handleScrollTo('features')}
+            onClick={e => { e.preventDefault(); document.getElementById("features")?.scrollIntoView({ behavior: 'smooth' }) }}
             className="hover:text-purple-600 cursor-pointer"
           >
             特徴
           </a>
           <a
             href="#how-to"
-            onClick={handleScrollTo('how-to')}
+            onClick={e => { e.preventDefault(); document.getElementById("how-to")?.scrollIntoView({ behavior: 'smooth' }) }}
             className="hover:text-purple-600 cursor-pointer"
           >
             使い方
           </a>
           <a
             href="#pricing"
-            onClick={handleScrollTo('pricing')}
+            onClick={e => { e.preventDefault(); document.getElementById("pricing")?.scrollIntoView({ behavior: 'smooth' }) }}
             className="hover:text-purple-600 cursor-pointer"
           >
             料金プラン
           </a>
           <a
             href="#faq"
-            onClick={handleScrollTo('faq')}
+            onClick={e => { e.preventDefault(); document.getElementById("faq")?.scrollIntoView({ behavior: 'smooth' }) }}
             className="hover:text-purple-600 cursor-pointer"
           >
             よくある質問
@@ -71,7 +64,6 @@ export default function Header() {
           <Link href="/terms" className="hover:text-purple-600 transition">
             利用規約
           </Link>
-
           {loggedIn ? (
             <Link
               href="/mypage"
@@ -88,6 +80,25 @@ export default function Header() {
             </Link>
           )}
         </nav>
+
+        {/* ===== スマホ用（〜767px）：右端にボタンだけ ===== */}
+        <div className="flex md:hidden">
+          {loggedIn ? (
+            <Link
+              href="/mypage"
+              className="bg-purple-600 text-white px-4 py-1.5 rounded-full hover:bg-purple-700 transition"
+            >
+              マイページ
+            </Link>
+          ) : (
+            <Link
+              href="/login"
+              className="bg-purple-600 text-white px-4 py-1.5 rounded-full hover:bg-purple-700 transition"
+            >
+              ログイン
+            </Link>
+          )}
+        </div>
       </div>
     </header>
   )
