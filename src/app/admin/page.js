@@ -19,7 +19,6 @@ export default function AdminPage() {
         router.push('/login')
         return
       }
-      // usersテーブルで管理者判定
       const { data: userData } = await supabase
         .from('users')
         .select('plan')
@@ -40,7 +39,7 @@ export default function AdminPage() {
       setLoading(true)
       const { data, error } = await supabase
         .from('users')
-        .select('id, username, email, plan, usage_count, is_active, created_at, sub_expire_date')
+        .select('id, username, email, password, plan, usage_count, is_active, last_login, created_at, sub_expire_date')
         .order('created_at', { ascending: false })
       if (error) setError('ユーザー取得エラー')
       setUsers(data || [])
@@ -55,12 +54,10 @@ export default function AdminPage() {
 
   // サブスク延長処理
   const handleExtendSub = async (userId, oldExpireDate, days) => {
-    // 既存有効期限と今日を比較、未来の日付から延長
     const base = oldExpireDate && dayjs(oldExpireDate).isAfter(dayjs())
       ? dayjs(oldExpireDate)
       : dayjs()
     const newExpire = base.add(days, 'day').format('YYYY-MM-DD')
-
     await supabase.from("users").update({ sub_expire_date: newExpire }).eq("id", userId)
     setUsers(users =>
       users.map(u => u.id === userId ? { ...u, sub_expire_date: newExpire } : u)
@@ -73,7 +70,24 @@ export default function AdminPage() {
     setUsers(users => users.map(u => u.id === id ? { ...u, is_active: !nowActive } : u))
   }
 
-  // 売上＝basicユーザーの人数×980円で概算
+  // プラン変更
+  const handleChangePlan = async (userId, newPlan) => {
+    await supabase.from('users').update({ plan: newPlan }).eq('id', userId)
+    setUsers(users =>
+      users.map(u => u.id === userId ? { ...u, plan: newPlan } : u)
+    )
+  }
+
+  // プラン選択肢
+  const PLAN_LIST = [
+    { value: '', label: '（未設定）' },
+    { value: 'free', label: 'free' },
+    { value: 'basic', label: 'basic' },
+    { value: 'pro', label: 'pro' },
+    { value: 'admin', label: 'admin' }
+  ]
+
+  // 売上・人数
   const basicCount = users.filter(u => u.plan === "basic").length
   const totalRevenue = basicCount * 980
   const activeCount = users.filter(u => u.is_active).length
@@ -106,10 +120,12 @@ export default function AdminPage() {
                   <th className="py-2 px-3 font-semibold">ID</th>
                   <th className="py-2 px-3 font-semibold">ニックネーム</th>
                   <th className="py-2 px-3 font-semibold">メール</th>
+                  <th className="py-2 px-3 font-semibold">パスワード</th>
                   <th className="py-2 px-3 font-semibold">プラン</th>
                   <th className="py-2 px-3 font-semibold">有効期限</th>
                   <th className="py-2 px-3 font-semibold">使用数</th>
                   <th className="py-2 px-3 font-semibold">状態</th>
+                  <th className="py-2 px-3 font-semibold">最終ログイン</th>
                   <th className="py-2 px-3 font-semibold">登録日</th>
                   <th className="py-2 px-3 font-semibold">操作</th>
                 </tr>
@@ -120,13 +136,21 @@ export default function AdminPage() {
                     <td className="py-1 px-3 text-xs text-gray-500">{user.id.slice(0, 8)}…</td>
                     <td className="py-1 px-3">{user.username}</td>
                     <td className="py-1 px-3 text-xs">{user.email}</td>
+                    <td className="py-1 px-3 text-xs">{user.password ? "●●●●●" : ""}</td>
                     <td className="py-1 px-3">
-                      <span className={`px-2 py-1 rounded text-xs font-bold bg-purple-100 text-purple-800`}>
-                        BASIC
-                      </span>
+                      <select
+                        className="px-2 py-1 rounded text-xs bg-gray-50 border"
+                        value={user.plan || ""}
+                        onChange={e => handleChangePlan(user.id, e.target.value)}
+                        style={{ minWidth: 60 }}
+                      >
+                        {PLAN_LIST.map(opt =>
+                          <option key={opt.value} value={opt.value}>{opt.label}</option>
+                        )}
+                      </select>
                     </td>
                     <td className="py-1 px-3 text-xs">
-                      {user.sub_expire_date ? user.sub_expire_date.slice(0, 10) : "未設定"}
+                      {user.sub_expire_date ? dayjs(user.sub_expire_date).format("YYYY-MM-DD") : "未設定"}
                     </td>
                     <td className="py-1 px-3 text-right">{user.usage_count}</td>
                     <td className="py-1 px-3">
@@ -135,20 +159,23 @@ export default function AdminPage() {
                       }`} />
                       {user.is_active ? '有効' : '停止'}
                     </td>
+                    <td className="py-1 px-3 text-xs">{user.last_login ? dayjs(user.last_login).format("MM/DD HH:mm") : "-"}</td>
                     <td className="py-1 px-3 text-xs">{user.created_at?.slice(0, 10)}</td>
-                    <td className="py-1 px-3 flex gap-2">
-                      <button
-                        className="px-2 py-1 bg-blue-100 hover:bg-blue-200 rounded text-xs"
-                        onClick={() => handleExtendSub(user.id, user.sub_expire_date, 7)}
-                      >
-                        7日延長
-                      </button>
-                      <button
-                        className="px-2 py-1 bg-purple-100 hover:bg-purple-200 rounded text-xs"
-                        onClick={() => handleExtendSub(user.id, user.sub_expire_date, 30)}
-                      >
-                        30日延長
-                      </button>
+                    <td className="py-1 px-3 flex flex-col gap-1">
+                      <div className="flex gap-2 mb-1">
+                        <button
+                          className="px-2 py-1 bg-blue-100 hover:bg-blue-200 rounded text-xs"
+                          onClick={() => handleExtendSub(user.id, user.sub_expire_date, 7)}
+                        >
+                          7日延長
+                        </button>
+                        <button
+                          className="px-2 py-1 bg-purple-100 hover:bg-purple-200 rounded text-xs"
+                          onClick={() => handleExtendSub(user.id, user.sub_expire_date, 30)}
+                        >
+                          30日延長
+                        </button>
+                      </div>
                       <button
                         className={`px-2 py-1 rounded text-xs ${user.is_active ? 'bg-red-200 hover:bg-red-300' : 'bg-green-200 hover:bg-green-300'}`}
                         onClick={() => handleToggleActive(user.id, user.is_active)}
@@ -160,7 +187,7 @@ export default function AdminPage() {
                 ))}
                 {users.length === 0 && (
                   <tr>
-                    <td colSpan={9} className="text-center py-6 text-gray-400">ユーザーがいません</td>
+                    <td colSpan={11} className="text-center py-6 text-gray-400">ユーザーがいません</td>
                   </tr>
                 )}
               </tbody>
@@ -172,7 +199,6 @@ export default function AdminPage() {
   )
 }
 
-// おしゃれな統計カード
 function StatsCard({ label, value, color = "purple" }) {
   const colorMap = {
     blue: "bg-blue-50 text-blue-600",

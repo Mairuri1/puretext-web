@@ -97,7 +97,96 @@ export default function Home() {
 
 <span id="features" className="block h-0 scroll-mt-28"></span>
 
-<section className="py-16 px-6 bg-white text-center">
+<section className="w-full flex flex-col md:flex-row items-center bg-white py-14 px-2 md:px-0 relative">
+  {/* 左：テキスト */}
+  <div className="w-full md:w-[55%] max-w-xl md:ml-[12%] md:mr-0">
+    {/* 2行タイトル */}
+    <h2 className="
+      text-2xl md:text-3xl font-extrabold text-gray-900 mb-7 tracking-wide text-left leading-snug
+      max-[600px]:text-center
+    ">
+      AIを使ったレポート作成などで
+      <br />
+      こんなお悩みありませんか？
+    </h2>
+    <div className="space-y-5 text-base md:text-lg">
+      {/* 1 */}
+      <div className="flex items-start gap-2">
+        <span className="inline-block mt-1 w-6 h-6 text-purple-600 shrink-0">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect width="24" height="24" rx="6" fill="#A78BFA"/>
+            <path d="M17 8.5L10.5 15L7 11.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </span>
+        <span>
+          毎回「自然に書いて」と頼んだのに
+          <span className="text-red-600 font-bold">不自然すぎて直す</span>
+          羽目に
+        </span>
+      </div>
+      {/* 2 */}
+      <div className="flex items-start gap-2">
+        <span className="inline-block mt-1 w-6 h-6 text-purple-600 shrink-0">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect width="24" height="24" rx="6" fill="#A78BFA"/>
+            <path d="M17 8.5L10.5 15L7 11.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </span>
+<span>結局自分で手直ししてて<span className="text-red-600 font-bold">時間を無駄に</span>している</span>
+
+
+
+
+      </div>
+      {/* 3 */}
+      <div className="flex items-start gap-2">
+        <span className="inline-block mt-1 w-6 h-6 text-purple-600 shrink-0">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect width="24" height="24" rx="6" fill="#A78BFA"/>
+            <path d="M17 8.5L10.5 15L7 11.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </span>
+        <span>
+          提出は間に合ったけど
+          <span className="text-red-600 font-bold">バレてないか心配</span>
+          になる
+        </span>
+      </div>
+    </div>
+    {/* 解決カギカッコ */}
+    <div className="mt-10 flex items-center">
+      {/* 左カギカッコ */}
+      <span className="inline-block mr-2">
+        <svg width="30" height="34" viewBox="0 0 30 34" fill="none">
+          <path d="M26 32C12 32 6 22.5 6 12M6 12C6 8.02944 9.02944 5 13 5H27M6 12L16 12" stroke="#A78BFA" strokeWidth="3" strokeLinecap="round"/>
+        </svg>
+      </span>
+      <span className="bg-purple-50 text-purple-700 font-bold text-lg md:text-xl rounded-xl px-5 py-3 shadow-sm tracking-wide">
+        そんな悩み、<span className="text-purple-700 font-extrabold">PureText</span>なら<br className="block md:hidden" />
+        <span className="underline decoration-purple-300 decoration-2">すべて解決できます！</span>
+      </span>
+      {/* 右カギカッコ */}
+      <span className="inline-block ml-2">
+        <svg width="30" height="34" viewBox="0 0 30 34" fill="none" style={{ transform: "scaleX(-1)" }}>
+          <path d="M26 32C12 32 6 22.5 6 12M6 12C6 8.02944 9.02944 5 13 5H27M6 12L16 12" stroke="#A78BFA" strokeWidth="3" strokeLinecap="round"/>
+        </svg>
+      </span>
+    </div>
+  </div>
+
+</section>
+
+
+
+{/* 上の紫波 */}
+<div className="w-full overflow-hidden leading-[0] -mb-1">
+  <svg viewBox="0 0 1440 150" className="w-full h-24 md:h-32" preserveAspectRatio="none">
+    <path fill="#F4F3FF" d="M0,0 Q360,80 720,40 T1440,80 V150 H0 Z"/>
+  </svg>
+</div>
+
+
+<section className="bg-[#F4F3FF] py-16 px-6  text-center">
 <h2 className="text-xl md:text-3xl font-bold mb-2 text-gray-800 leading-tight">
   超自然な文章が書けるAIツール<br />
   <span className="text-purple-700 font-extrabold text-2xl md:text-4xl">
@@ -153,6 +242,14 @@ export default function Home() {
     </div>
   </div>
 </section>
+
+
+{/* 下の紫波（逆さま） */}
+<div className="w-full overflow-hidden leading-[0] -mb-1 rotate-180">
+  <svg viewBox="0 0 1440 150" className="w-full h-24 md:h-32" preserveAspectRatio="none">
+    <path fill="#F4F3FF" d="M0,0 Q360,80 720,40 T1440,80 V150 H0 Z"/>
+  </svg>
+</div>
 
 
 

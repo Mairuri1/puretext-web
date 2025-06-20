@@ -25,10 +25,13 @@ export default function SignupPage() {
       return
     }
 
-    // 2. Supabase Authでサインアップ
+    // 2. Supabase Authでサインアップ（メール認証はスキップ）
     const { data: signupData, error: signupError } = await supabase.auth.signUp({
       email,
-      password
+      password,
+      options: {
+        emailRedirectTo: undefined, // メール認証無効
+      }
     })
 
     if (signupError) {
@@ -56,8 +59,8 @@ export default function SignupPage() {
             id: user.id,
             username,
             email: user.email,
-            password: hashedPassword, // ハッシュ済みパスワード
-            plan: 'basic',
+            password: hashedPassword,
+            
             usage_count: 0,
             is_active: true
           }
@@ -69,8 +72,8 @@ export default function SignupPage() {
       }
     }
 
-    setMessage('登録完了！確認メールをチェックしてください✉️')
-    router.push('/verify-pending')
+    // 3. 登録成功したらすぐマイページへ遷移（認証演出なし！）
+    router.push('/mypage')
   }
 
   return (
